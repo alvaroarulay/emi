@@ -748,7 +748,7 @@ export default {
             'unidad':this.idunidad,
         }).then((response)=>{
           Swal.fire(response.data.message, "", "success");
-          window.open('https://activosfijos.emi.edu.bo/actual/repAsignaciones?codofic=' + this.cod_ofi + '&codresp='+ this.cod_resp + '&unidad='+ this.idunidad +  '','_blank');
+          window.open('http://emiultimo.test/actual/repAsignaciones?codofic=' + this.cod_ofi + '&codresp='+ this.cod_resp + '&unidad='+ this.idunidad +  '','_blank');
           this.cancelarAsignacion1();
         }).catch((error)=>{
             console.log(error);
@@ -784,11 +784,15 @@ export default {
     },
     acta_devolucion(){
         let me = this;
-        window.open('https://activosfijos.emi.edu.bo/devoluciones/actaDevoluciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp + '&unidad=' + me.idunidad + '&id_dev=' + me.id_dev +'','_blank');
+        let codofic = me.cod_ofi;
+        let codresp = me.cod_resp;
+        window.open('http://emiultimo.test/devoluciones/actaDevoluciones?codofic=' + codofic + '&codresp='+ codresp + '&unidad=' + me.idunidad + '&id_dev=' + me.id_dev +'','_blank');
     },
     acta_asignacion(){
         let me = this;
-        window.open('https://activosfijos.emi.edu.bo/asignaciones/actaAsignaciones?codofic=' + me.cod_ofi2 + '&codresp='+ me.cod_resp2 +  '&unidad=' + me.idunidad + '&id_asig=' + me.id_asig);
+        let codofic = me.cod_ofi2;
+        let codresp = me.cod_resp2;
+        window.open('http://emiultimo.test/asignaciones/actaAsignaciones?codofic=' + codofic + '&codresp='+ codresp +  '&unidad=' + me.idunidad + '&id_asig=' + me.id_asig+'','_blank');
         
     },
     finalizar(){

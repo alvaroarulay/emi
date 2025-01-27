@@ -280,7 +280,7 @@ export default {
       }
       else{
         let me = this;
-        window.open('https://activosfijos.emi.edu.bo/actual/repDevoluciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp +  '','_blank');
+        window.open('http://emiultimo.test/actual/repDevoluciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp +  '','_blank');
       }
     }
   },

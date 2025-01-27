@@ -57,7 +57,7 @@ class OficinasController extends Controller
             $oficina->nomofic = $request->nomofic;
             $oficina->observ = $request->observ;
             $oficina->feult = now();
-            $oficina->usuar = auth()->user()->name;
+            $oficina->usuar = auth()->user()->username;
             $oficina->api_estado = $request->estado;
             $oficina->estadodbf = 1;
             $oficina->save();

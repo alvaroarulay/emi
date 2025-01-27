@@ -599,12 +599,12 @@ methods: {
   },
   asignaciones(){
     let me = this;
-      me.pdf =('https://activosfijos.emi.edu.bo/asignaciones/actaAsignaciones?codofic=' + me.codofic + '&codresp='+ me.codresp +  '&unidad=' + me.idunidad + '&id_asig=' + me.id_asig);
+      me.pdf =('http://emiultimo.test/asignaciones/actaAsignaciones?codofic=' + me.codofic + '&codresp='+ me.codresp +  '&unidad=' + me.idunidad + '&id_asig=' + me.id_asig);
       me.modalpdf = 1;
   },
   devoluciones(codresp, codofic){
     let me = this;
-    me.pdf = ('https://activosfijos.emi.edu.bo/devoluciones/actaDevoluciones?codofic=' + codofic + '&codresp='+ codresp + '&unidad=' + me.idunidad + '&id_dev=' + me.id_dev);
+    me.pdf = ('http://emiultimo.test/devoluciones/actaDevoluciones?codofic=' + codofic + '&codresp='+ codresp + '&unidad=' + me.idunidad + '&id_dev=' + me.id_dev);
     me.modalpdf = 1;
   },
   finalizar(){

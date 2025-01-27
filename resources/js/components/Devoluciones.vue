@@ -381,7 +381,7 @@ export default {
           'data': this.actuales,
       }).then((response)=>{
         Swal.fire(response.data.message, "", "success");
-        window.open('https://activosfijos.emi.edu.bo/actual/repDevoluciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp +  '&unidad=' + this.idunidad + '','_blank');
+        window.open('http://emiultimo.test/actual/repDevoluciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp +  '&unidad=' + this.idunidad + '','_blank');
         this.cerrarModal();
       }).catch((error)=>{
           console.log(error);

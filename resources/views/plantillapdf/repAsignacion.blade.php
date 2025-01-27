@@ -97,40 +97,40 @@
 		<table id="cabecera">
 			<tr style=" height: .5cm;">
 				<td >
-					<p style="font-size: x-small; margin: 0.1cm; text-align: right;"><b>ENTIDAD:</b></p>
+					<p style="font-size: xx-small; margin: 0.1cm; text-align: right;"><b>ENTIDAD:</b></p>
 				</td>
 				<td style=" height: .5cm; width:7cm;">
-					<p style="font-size: x-small; margin: 0.1cm;">Escuela Militar de Ingeniería</p>
+					<p style="font-size: xx-small; margin: 0.1cm;">Escuela Militar de Ingeniería</p>
 				</td>
 				<td>
-				<p style="font-size: x-small;  margin: 0.1cm;"><b>UNIDAD:</b> {{$responsable->unidad}}</p>
+				<p style="font-size: xx-small;  margin: 0.1cm;"><b>UNIDAD:</b> {{$responsable->unidad}}</p>
 				</td>
 			</tr>
 			<tr style=" height: .5cm;">
 				<td >
-				<p style="font-size: x-small; margin: 0.1cm; text-align: right;"><b>RESPONSABLE:</b></p>
+				<p style="font-size: xx-small; margin: 0.1cm; text-align: right;"><b>RESPONSABLE:</b></p>
 				</td>
 				<td >
-				<p style="font-size: x-small; margin: 0.1cm;">{{$responsable->nomresp}}</p>
+				<p style="font-size: xx-small; margin: 0.1cm;">{{$responsable->nomresp}}</p>
 				</td>
 				<td><div style="width: 3cm;  height: .5cm; text-align: right; font-size: x-small; margin: 0.1cm;">C.I.</div></td>
 				<td><div style="width: 2cm;  height: .5cm; font-size: x-small; margin: 0.1cm; ">{{$responsable->ci}}</div> </td>
 			</tr>
 			<tr style=" height: .5cm;" >
 				<td>
-				<p style="font-size: x-small; margin: 0.1cm; text-align: right;"><b>CARGO:</b></p>
+				<p style="font-size: xx-small; margin: 0.1cm; text-align: right;"><b>CARGO:</b></p>
 				</td>
 				<td>
 				
-				<p style="font-size: x-small; margin: 0.1cm;">{{$responsable->cargo}}</p>
+				<p style="font-size: xx-small; margin: 0.1cm;">{{$responsable->cargo}}</p>
 				</td>
 			</tr>
 			<tr style=" height: .5cm;">
 				<td>
-				<p style="font-size: x-small; margin: 0.1cm; text-align: right;"><b>OFICINA:</b></p>
+				<p style="font-size: xx-small; margin: 0.1cm; text-align: right;"><b>OFICINA:</b></p>
 				</td>
 				<td>
-				<p style="font-size: x-small; margin: 0.1cm;">{{$responsable->codofic.' - '.$responsable->nomofic}}</p>
+				<p style="font-size: xx-small; margin: 0.1cm;">{{$responsable->codofic.' - '.$responsable->nomofic}}</p>
 				</td>
 			</tr>
 		</table>

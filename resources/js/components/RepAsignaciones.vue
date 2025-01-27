@@ -415,12 +415,12 @@ export default {
       else if(this.checkContables.length == 0){
 
         let me = this;
-        me.pdf ='https://activosfijos.emi.edu.bo/actual/repAsignaciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp + '&codcont='+ me.codcont + '&unidad='+me.idunidad + '&fecha=' + me.fecha;
+        me.pdf ='http://emiultimo.test/actual/repAsignaciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp + '&codcont='+ me.codcont + '&unidad='+me.idunidad + '&fecha=' + me.fecha;
         me.modalpdf = 1;
       }
       else{
         let me = this;
-        me.pdf ='https://activosfijos.emi.edu.bo/actual/repAsignaciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp + '&data='+ me.checkContables + '&unidad='+me.idunidad + '&fecha=' + me.fecha;
+        me.pdf ='http://emiultimo.test/actual/repAsignaciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp + '&data='+ me.checkContables + '&unidad='+me.idunidad + '&fecha=' + me.fecha;
         me.modalpdf = 1;
       }
     },
@@ -434,12 +434,12 @@ export default {
       }
       else if(this.checkContables.length == 0){
         let me = this;
-        me.pdf='https://activosfijos.emi.edu.bo/actual/repDevoluciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp + '&codcont='+ me.codcont  + '&unidad=' + me.idunidad + '&fecha=' + me.fecha;
+        me.pdf='http://emiultimo.test/actual/repDevoluciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp + '&codcont='+ me.codcont  + '&unidad=' + me.idunidad + '&fecha=' + me.fecha;
         me.modalpdf = 1;
       }
       else{
         let me = this;
-        me.pdf='https://activosfijos.emi.edu.bo/actual/repDevoluciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp + '&data='+ me.checkContables  + '&unidad=' + me.idunidad;
+        me.pdf='http://emiultimo.test/actual/repDevoluciones?codofic=' + me.cod_ofi + '&codresp='+ me.cod_resp + '&data='+ me.checkContables  + '&unidad=' + me.idunidad;
         me.modalpdf = 1;
       }
     },

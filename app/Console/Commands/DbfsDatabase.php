@@ -44,7 +44,6 @@ class DbfsDatabase extends Command
             //$this->llenarDBF();
             $this->editarResponsable();
             $this->editarOficina();
-
             return Command::SUCCESS;
         } catch (Exception $e) {
 

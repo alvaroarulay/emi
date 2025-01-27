@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     viafzip(){
-      window.open('https://activosfijos.emi.edu.bo/download-zipvsiaf');
+      window.open('http://emiultimo.test/download-zipvsiaf');
     }
   }
 }
