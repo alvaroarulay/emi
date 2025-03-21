@@ -167,7 +167,7 @@
 		
 		<p class="eslogan">El servidor público queda prohibido de usar o permitir el uso de los bienes para beneficio particular o privado, prestar o transferir el bien a otro empleado público, enajenar el bien por cuenta propia,
 			dañar o alterar sus características físicas o técnicas, poner en riesgo el bien, ingresar o sacar bienes particulares sin autorización de la Unidad o Responsable de Activos Fijos.
-			La no observancia a estas prohibiciones generará responsabilidades establecidas en la Ley Nº 1178 y sus reglamentos </p>
+			La no observancia a estas prohibiciones generará responsabilidades establecidas en la Ley Nº 1178 y sus reglamentos. </p>
 		<p class="eslogan">En señal de conformidad y aceptación se firma el presente acta.</p>
 	</main>
 	<footer>

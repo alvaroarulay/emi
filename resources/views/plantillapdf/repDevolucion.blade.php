@@ -157,7 +157,7 @@
 				<td style="text-align: center;">{{$dato->codigo}}</td>
 				<td>{{$dato->descripcion}}</td>
 				<td>{{$dato->nomestado}}</td>
-				<td>{{$dato->observaciones}}</td>
+				<td>{{$dato->observ}}</td>
 			</tr>
 			@endforeach
 		</tbody>
@@ -167,7 +167,7 @@
 			</tr>
 		</tfoot>
 	</table>
-	<p class="eslogan">En la fecha suscrita el servidor público realiza la devolución de activos fijos de propiedad de la Escuela Militar de Ingeniería, consignados a su cargo, procediendose a la libración respectiva, conforma a lo dispuesto en el Art. 148 de Decreto supremo 0181. </p>
+	<p class="eslogan">En la fecha suscrita el servidor público realiza la devolución de activos fijos de propiedad de la Escuela Militar de Ingeniería, consignados a su cargo, procediendose a la liberación respectiva, conforme a lo dispuesto en el Art. 148 del DECRETO SUPREMO 0181. </p>
 	<p class="eslogan">En señal de conformidad y aceptación se firma el presente acta.</p>
 
 
@@ -185,9 +185,9 @@
 			<div style=" text-align: center; width: 8.66cm;">
 				<p style="margin: 0.1cm; text-align: center;">_____________________________</p>
 				@if($unidad == 'OFCEN' )
-				<p style="font-size: x-small; margin: 0.1cm;">Responsable de Activos Fijos</p>
+				<p style="font-size: xx-small; margin: 0.1cm;">Responsable de Activos Fijos</p>
 				@else
-				<p style="font-size: x-small; margin: 0.1cm;">Jefe UAAF VoBo</p>
+				<p style="font-size: xx-small; margin: 0.1cm;">Jefe UAAF VoBo</p>
 				@endif
 			</div>
 		</td>

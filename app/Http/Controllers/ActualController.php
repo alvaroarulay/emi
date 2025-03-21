@@ -663,20 +663,16 @@ class ActualController extends Controller
             $fechaTitulo = Date::now()->format('l j F Y');
         }
         $fechDerecha = Date::now()->format('d/M/Y');
-        $unidad = $request->unidad;
+        $unidad = \Auth::user()->unidad;
         if($request->data==''){
             $codcont = $request->codcont;
             $datos = Actual::join('auxiliar',function ($join) {
                     $join->on('actual.codaux', '=', 'auxiliar.codaux');
                     $join->on('actual.codcont', '=', 'auxiliar.codcont');
                 })
-                ->join('estado','actual.codestado','=','estado.id')
-                ->join('unidadadmin','actual.unidad','=','unidadadmin.unidad')
-                ->select('actual.codigo','actual.codaux','auxiliar.nomaux','actual.observ',
-                'estado.nomestado', 'actual.descripcion')
-                ->distinct()
-                ->where('actual.unidad','=',$unidad)
-                ->where('actual.codresp','=',$request->codresp)
+                ->join('estado','actual.codestado','=','estado.id') ->join('unidadadmin','actual.unidad','=','unidadadmin.unidad') 
+                ->select('actual.codigo','actual.codaux','auxiliar.nomaux','actual.observ', 'estado.nomestado', 'actual.descripcion','actual.observ') 
+                ->distinct() ->where('actual.unidad','=',$request->unidad) ->where('actual.codresp','=',$request->codresp) 
                 ->where('actual.codofic','=',$request->codofic)->get();
             $total = $datos->count();
         }else{
@@ -690,7 +686,7 @@ class ActualController extends Controller
             ->join('unidadadmin','actual.unidad','=','unidadadmin.unidad')
             ->select('actual.codigo','actual.codaux','auxiliar.nomaux','estado.nomestado', 'actual.descripcion','actual.codcont','actual.observ')
             ->distinct()
-            ->where('actual.unidad','=',$unidad)
+            ->where('actual.unidad','=',$request->unidad)
             ->where('actual.codresp','=',$request->codresp)
             ->where('actual.codofic','=',$request->codofic)
             ->get();
@@ -706,6 +702,7 @@ class ActualController extends Controller
             }
             $total = count($datos);
         }
+	if($request->unidad==''){
         $responsable = Responsables::join('unidadadmin','resp.unidad','=','unidadadmin.unidad')
                                     ->join('oficina', function ($join) {
                                         $join->on('unidadadmin.unidad', '=', 'oficina.unidad');
@@ -714,8 +711,17 @@ class ActualController extends Controller
                                     ->select('resp.nomresp','oficina.nomofic','resp.cargo','oficina.codofic','resp.ci','unidadadmin.descrip as unidad')
                                     ->where('resp.unidad','=',$unidad)
                                     ->where('resp.codresp','=',$request->codresp)
-                                    ->where('resp.codofic','=',$request->codofic)->first();
-        
+                                    ->where('resp.codofic','=',$request->codofic)->first();}
+        else{
+	$responsable = Responsables::join('unidadadmin','resp.unidad','=','unidadadmin.unidad')
+				    ->join('oficina',function ($join) {
+					$join->on('unidadadmin.unidad','=','oficina.unidad');
+					$join->on('resp.codofic','=','oficina.codofic');
+				    })
+				   ->select('resp.nomresp','oficina.nomofic','resp.cargo','oficina.codofic','resp.ci','unidadadmin.descrip as unidad')
+				   ->where('resp.unidad','=',$request->unidad)
+				   ->where('resp.codresp','=',$request->codresp)
+				   ->where('resp.codofic','=',$request->codofic)->first();}
         $pdf=Pdf::loadView('plantillapdf.repAsignacion',['datos'=>$datos,'responsable'=>$responsable,'fechaTitulo'=>$fechaTitulo,'fechaDerecha'=>$fechDerecha,'total'=>$total, 'unidad'=>$unidad]);
         $pdf->set_paper(array(0,0,800,617));
         return $pdf->stream();
@@ -738,9 +744,9 @@ class ActualController extends Controller
                         $join->on('actual.codcont', '=', 'auxiliar.codcont');
                 })
                 ->join('estado','actual.codestado','=','estado.id')
-                ->select('actual.codigo','actual.codaux','auxiliar.nomaux','estado.nomestado', 'actual.descripcion',)
+                ->select('actual.codigo','actual.codaux','auxiliar.nomaux','estado.nomestado', 'actual.descripcion','actual.observ')
                 ->distinct()
-                ->where('actual.unidad','=',$unidad)
+                ->where('actual.unidad','=',$request->unidad)
                 ->where('actual.codresp','=',$request->codresp)
                 ->where('actual.codofic','=',$request->codofic)->get();
             $total = $datos->count();
@@ -754,7 +760,7 @@ class ActualController extends Controller
             ->join('estado','actual.codestado','=','estado.id')
             ->select('actual.codigo','actual.codaux','auxiliar.nomaux','estado.nomestado', 'actual.descripcion','actual.codcont')
             ->distinct()
-            ->where('actual.unidad','=',$unidad)
+            ->where('actual.unidad','=',$request->unidad)
             ->where('actual.codresp','=',$request->codresp)
             ->where('actual.codofic','=',$request->codofic)
             ->get();
@@ -770,14 +776,27 @@ class ActualController extends Controller
             }
             $total = count($datos);
         }
+	if($request->unidad == ''){
         $responsable =  Responsables::join('unidadadmin','resp.unidad','=','unidadadmin.unidad')
                                     ->join('oficina', function ($join) {
                                         $join->on('unidadadmin.unidad', '=', 'oficina.unidad');
                                         $join->on('resp.codofic', '=', 'oficina.codofic');
                                     })
                                     ->select('resp.nomresp','oficina.nomofic','resp.cargo','oficina.codofic','resp.ci','unidadadmin.descrip as unidad')
-                                    ->where('resp.codresp','=',$request->codresp)
+                                    ->where('resp.unidad','=',\Auth::user()->unidad)
+				    ->where('resp.codresp','=',$request->codresp) 
+                                    ->where('resp.codofic','=',$request->codofic)->first();}
+	else{
+	$responsable =  Responsables::join('unidadadmin','resp.unidad','=','unidadadmin.unidad')
+                                    ->join('oficina', function ($join) {
+                                        $join->on('unidadadmin.unidad', '=', 'oficina.unidad');
+                                        $join->on('resp.codofic', '=', 'oficina.codofic');
+                                    })
+                                    ->select('resp.nomresp','oficina.nomofic','resp.cargo','oficina.codofic','resp.ci','unidadadmin.descrip as unidad')
+                                    ->where('resp.unidad','=',$request->unidad)
+				    ->where('resp.codresp','=',$request->codresp) 
                                     ->where('resp.codofic','=',$request->codofic)->first();
+       }
         $pdf=Pdf::loadView('plantillapdf.repDevolucion',['datos'=>$datos,'responsable'=>$responsable,'fechaTitulo'=>$fechaTitulo,'fechaDerecha'=>$fechDerecha,'total'=>$total, 'unidad'=>$unidad]);
         $pdf->set_paper(array(0,0,800,617));
         return $pdf->stream();

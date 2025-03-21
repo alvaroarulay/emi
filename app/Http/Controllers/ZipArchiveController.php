@@ -24,15 +24,13 @@ class ZipArchiveController extends Controller
     public function downloadZip()
     {         
         try {
-            $this->editarActual(); 
+            $ruta = '/var/www/html/emi/public/vsiaf/dbfs/';
+	    exec("sudo chmod -R 0777 $ruta");
+	    $this->editarActual(); 
             $this->editarAuxiliar(); 
             $this->editarResponsable(); 
-            $this->editarOficina();    
-            /*$this->deleteDBF();
-                $this->deleteRespDBF();
-                //$this->createDBF();
-                $this->llenarDBF();
-                $this->llenarRespDBF();*/
+            $this->editarOficina();
+	   
                 $zip = new ZipArchive;
                 $date = Carbon::now();
                 $fileName = 'VS'.$date->format('Ymd') . '.' .'zip';
@@ -47,6 +45,8 @@ class ZipArchiveController extends Controller
 
                     $zip->close();
                 }
+		exec("sudo chown -R vsiaf2:vsiaf2 $ruta");
+		exec("sudo chmod -R 0777 $ruta");
                 return response()->download(public_path($fileName));
             
             } catch (Exception $e) {
@@ -448,7 +448,7 @@ class ZipArchiveController extends Controller
                 $datosMap[$dato->codigo] = [
                     'codcont' => $dato->codcont,
                     'codaux' => $dato->codaux,
-                    'descripcion' => $dato->descripcion,
+                   // 'descripcion' => $dato->descripcion,
                     'codestado' => $dato->codestado,
                     'codigosec' => $dato->codigosec,
                 ];
@@ -460,7 +460,7 @@ class ZipArchiveController extends Controller
                     $dato = $datosMap[$codigo];
                     $record->set('codcont', $dato['codcont']);
                     $record->set('codaux', $dato['codaux']);
-                    $record->set('descrip', $dato['descripcion']);
+                   // $record->set('descrip', $dato['descripcion']);
                     $record->set('codestado', $dato['codestado']);
                     $record->set('codigosec', $dato['codigosec']);
                     $table->writeRecord();
@@ -480,7 +480,7 @@ class ZipArchiveController extends Controller
             $datosMap = [];
             foreach ($datos as $dato) {
                 $datosMap[$dato->codaux . '|' . $dato->codcont] = [
-                    'nomaux' => $dato->nomaux,
+                    'nomaux' => $this->limpiarTexto($dato->nomaux),
                     'codaux' => $dato->codaux,
                     'codcont' => $dato->codcont,
                 ];
@@ -518,9 +518,9 @@ class ZipArchiveController extends Controller
                     'unidad'=>$dato->unidad,
                     'codofic'=>$dato->codofic,
                     'codresp'=>$dato->codresp,
-                    'nomresp'=>$dato->nomresp,
-                    'cargo'=>$dato->cargo,
-                    'observ'=>$dato->observ,
+                    'nomresp'=>$this->limpiarTexto($dato->nomresp),
+                    'cargo'=>$this->limpiarTexto($dato->cargo),
+                    //'observ'=>$dato->observ,
                     'ci'=>$dato->ci,
                     'feult'=>$dato->feult,
                     'usuar'=>$dato->usuar,
@@ -555,7 +555,7 @@ class ZipArchiveController extends Controller
                     $newRecord->set('codresp', $dato['codresp']);
                     $newRecord->set('nomresp', $dato['nomresp']);
                     $newRecord->set('cargo', $dato['cargo']);
-                    $newRecord->set('observ', $dato['observ']);
+                   // $newRecord->set('observ', $dato['observ']);
                     $newRecord->set('ci', $dato['ci']);
                     $newRecord->set('feult', $dato['feult']);
                     $newRecord->set('usuar', $dato['usuar']);
@@ -581,15 +581,15 @@ class ZipArchiveController extends Controller
                     'entidad'=>$dato->entidad,
                     'unidad'=>$dato->unidad,
                     'codofic'=>$dato->codofic,
-                    'nomofic'=>$dato->nomofic,
-                    'observ'=>$dato->observaciones,
-                    'feult'=>$dato->feult,
+                    'nomofic'=>$this->limpiarTexto($dato->nomofic),
+                   // 'observ'=>$dato->observaciones,
+                   // 'feult'=>$dato->feult,
                     'usuar'=>$dato->usuar,
                     'api_estado'=>$dato->api_estado,
                 ];
             }
 
-            $table = new TableEditor(public_path('vsiaf/dbfs/oficina.DBF'), ['encoding' => 'cp1252']);
+            $table = new TableEditor(public_path('vsiaf/dbfs/OFICINA.DBF'), ['encoding' => 'cp1252']);
             $procesados = [];
             while ($record = $table->nextRecord()) {
                 $codofic = $record->get('codofic');
@@ -599,7 +599,7 @@ class ZipArchiveController extends Controller
                     $dato = $datosMap[$key];
                     $record->set('nomofic', $dato['nomofic']);
                     $record->set('api_estado', $dato['api_estado']);
-                    $record->set('observ', $dato['observ']);
+                   // $record->set('observ', $dato['observ']);
                     $table->writeRecord();
                     $procesados[$key] = true;
                 }
@@ -611,8 +611,8 @@ class ZipArchiveController extends Controller
                     $newRecord->set('unidad', $dato['unidad']);
                     $newRecord->set('codofic', $dato['codofic']);
                     $newRecord->set('nomofic', $dato['nomofic']);
-                    $newRecord->set('observ', $dato['observ']);
-                    $newRecord->set('feult', $dato['feult']);
+                   // $newRecord->set('observ', $dato['observ']);
+                   // $newRecord->set('feult', $dato['feult']);
                     $newRecord->set('usuar', $dato['usuar']);
                     $newRecord->set('api_estado', $dato['api_estado']);
                     $table->writeRecord();
@@ -625,5 +625,11 @@ class ZipArchiveController extends Controller
         return response()->json(['message' => 'Excepción capturada: '+  $e->getMessage()]);
         }
 
+    }
+    private function limpiarTexto($texto){
+    $replace =['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u',
+	       'Á'=>'A','É'=>'E','Í'=>'I','Ó'=>'O','Ú'=>'U',
+	       'Ñ'=>'NI','ñ'=>'ni'];
+    return strtr($texto,$replace);
     }
 }

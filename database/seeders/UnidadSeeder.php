@@ -16,7 +16,7 @@ class UnidadSeeder extends Seeder
      */
     public function run()
     {
-        $table = new TableReader(public_path('vsiaf/dbfs/unidadadmin.DBF'),['encoding' => 'cp1252']);
+        $table = new TableReader(public_path('vsiaf/dbfs/UNIDADADMIN.DBF'),['encoding' => 'cp1252']);
         while ($record = $table->nextRecord()) {
             DB::table('unidadadmin')->insert([
             'entidad' =>$record->get('entidad'),

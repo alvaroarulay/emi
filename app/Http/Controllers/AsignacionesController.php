@@ -48,16 +48,18 @@ class AsignacionesController extends Controller
         $total = $datos->count();
         if($idrol == 1){
             if($unidadv == ''){
-                $responsable = Responsables::join('oficina','resp.codofic','=','oficina.codofic')
-                ->join('unidadadmin','resp.unidad','=','unidadadmin.unidad')
-                ->select('resp.nomresp','oficina.nomofic','resp.cargo','oficina.codofic','resp.ci','unidadadmin.descrip as unidad')
-                ->where('resp.unidad','=',$unidad)
-                ->where('resp.codresp','=',$codresp)
-                ->where('resp.codofic','=',$codofic)->first();
+                $responsable = Responsables::join('unidadadmin','resp.unidad','=','unidadadmin.unidad')
+		->join('oficina',function($join){
+			$join->on('unidadadmin.unidad','=','oficina.unidad');
+			$join->on('resp.codofic','=','oficina.codofic');})
+                ->select('resp.nomresp','oficina.nomofic','resp.cargo','oficina.codofic','resp.ci','unidadadmin.descrip as unidad') 
+                ->where('resp.unidad','=',$unidad)->where('resp.codresp','=',$codresp)->where('resp.codofic','=',$codofic)->first();
             }
             else{
-                $responsable = Responsables::join('oficina','resp.codofic','=','oficina.codofic')
-                ->join('unidadadmin','resp.unidad','=','unidadadmin.unidad')
+                $responsable = Responsables::join('unidadadmin','resp.unidad','=','unidadadmin.unidad')
+		->join('oficina',function($join){
+			$join->on('unidadadmin.unidad','=','oficina.unidad');
+			$join->on('resp.codofic','=','oficina.codofic');})
                 ->select('resp.nomresp','oficina.nomofic','resp.cargo','oficina.codofic','resp.ci','unidadadmin.descrip as unidad')
                 ->where('resp.unidad','=',$unidadv)
                 ->where('resp.codresp','=',$codresp)
@@ -65,12 +67,15 @@ class AsignacionesController extends Controller
             }
         }
         else{
-            $responsable = Responsables::join('oficina','resp.codofic','=','oficina.codofic')
-            ->join('unidadadmin','resp.unidad','=','unidadadmin.unidad')
+            $responsable = Responsables::join('unidadadmin','resp.unidad','=','unidadadmin.unidad')
+		->join('oficina',function($join){
+			$join->on('unidadadmin.unidad','=','oficina.unidad');
+			$join->on('resp.codofic','=','oficina.codofic');})
             ->select('resp.nomresp','oficina.nomofic','resp.cargo','oficina.codofic','resp.ci','unidadadmin.descrip as unidad')
             ->where('resp.unidad','=',$unidad)
             ->where('resp.codresp','=',$codresp)
             ->where('resp.codofic','=',$codofic)->first();
+
         }
         $pdf=Pdf::loadView('plantillapdf.repAsignacion',['datos'=>$datos,'responsable'=>$responsable,'fechaTitulo'=>$fechaTitulo,'fechaDerecha'=>$fechDerecha,'total'=>$total,'unidad'=>$unidad]);
         $pdf->set_paper(array(0,0,800,617));

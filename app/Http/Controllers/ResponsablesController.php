@@ -247,7 +247,7 @@ class ResponsablesController extends Controller
 
    try { 
         
-            $codofic = Responsables::where('codofic','=',$request->codofic)->where('unidad','=',$unidad)->count();
+            $codofic = Responsables::where('codofic','=',$request->codofic)->where('unidad','=',$unidad)->max('codresp');
             $responsable = new Responsables();
             $responsable->entidad='170';
             $responsable->unidad=$request->unidad;

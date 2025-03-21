@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Models\Actual;
+use App\Models\Auxiliares;
 use App\Models\Responsables;
 use App\Models\Oficinas;
 use XBase\Enum\FieldType;
@@ -38,12 +39,15 @@ class DbfsDatabase extends Command
     public function handle()
     {
         try {
-            //$this->deleteDBF();
+            $ruta = '/var/www/html/emi/public/vsiaf/dbfs/';
+	    exec("sudo chmod -R 0777 $ruta");
             $this->editarActual();
             $this->editarAuxiliar();
-            //$this->llenarDBF();
+           // $this->llenarDBF();
             $this->editarResponsable();
             $this->editarOficina();
+	   exec("sudo chown -R vsiaf2:vsiaf2 $ruta");
+	    exec("sudo chmod -R 0777 $ruta"); 
             return Command::SUCCESS;
         } catch (Exception $e) {
 
@@ -51,262 +55,8 @@ class DbfsDatabase extends Command
             // return response()->json(['message' => 'Excepción capturada: '.$e->getMessage()]);
         }
     }
-    public function deleteDBF()
-    {
-        try {
-             // Ruta del archivo
-            $filePath = public_path('vsiaf/dbfs/ACTUAL.DBF');
-            // Verifica si el archivo existe
-            if (file_exists($filePath) ) {
-            // Elimina el archivo
-            //Storage::delete($filePath);
-            unlink($filePath);
-           
-            $this->createDBF();
-            } else {
-                $this->createDBF();
-            }
-        
-        } catch (Exception $e) {
-
-           return print_r("hubo un error");
-            // return response()->json(['message' => 'Excepción capturada: '.$e->getMessage()]);
-        }
-    }
-    public function deleteRespDBF()
-    {
-        try {
-             // Ruta del archivo
-            $filePath = public_path('vsiaf/dbfs/resp.DBF');
-            // Verifica si el archivo existe
-            if (file_exists($filePath) ) {
-            // Elimina el archivo
-            //Storage::delete($filePath);
-            unlink($filePath);
-           
-            $this->createRespDBF();
-            } else {
-                $this->createRespDBF();
-            }
-        
-        } catch (Exception $e) {
-
-           return print_r("hubo un error");
-            // return response()->json(['message' => 'Excepción capturada: '.$e->getMessage()]);
-        }
-    }
-    public function deleteOficinas()
-    {
-        try {
-             // Ruta del archivo
-            $filePath = public_path('vsiaf/dbfs/oficina.DBF');
-            // Verifica si el archivo existe
-            if (file_exists($filePath) ) {
-            // Elimina el archivo
-            //Storage::delete($filePath);
-            unlink($filePath);
-           
-            $this->createOficinaDBF();
-            } else {
-                $this->createOficinaDBF();
-            }
-        
-        } catch (Exception $e) {
-
-           return print_r("hubo un error");
-            // return response()->json(['message' => 'Excepción capturada: '.$e->getMessage()]);
-        }
-    }
-    protected function createDBF(){
-        $header = HeaderFactory::create(TableType::DBASE_III_PLUS_MEMO);
-        $filepath = public_path('vsiaf/dbfs/ACTUAL.DBF');
-
-        $tableCreator = new TableCreator($filepath, $header);
-        $tableCreator
-            ->addColumn(new Column([
-                'name'   => 'unidad',
-                'type'   => FieldType::CHAR,
-                'length' => 5,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'entidad',
-                'type'   => FieldType::CHAR,
-                'length' => 4,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'codigo',
-                'type'   => FieldType::CHAR,
-                'length' => 15,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'codcont',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 2,
-                'decimalCount' => 0,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'codaux',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 3,
-                'decimalCount' => 0,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'vidautil',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 6,
-                'decimalCount' => 2,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'descrip',
-                'type'   => FieldType::CHAR,
-                'length' => 150,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'costo',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 15,
-                'decimalCount' => 2,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'depacu',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 15,
-                'decimalCount' => 2,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'mes',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 2,
-                'decimalCount' => 0,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'ano',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 4,
-                'decimalCount' => 0,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'b_rev',
-                'type'   => FieldType::LOGICAL,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'dia',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 2,
-                'decimalCount' => 0,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'codofic',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 4,
-                'decimalCount' => 0,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'codresp',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 5,
-                'decimalCount' => 0,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'observ',
-                'type'   => FieldType::MEMO,
-                'length'       => 10,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'dia_ant',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 2,
-                'decimalCount' => 0,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'mes_ant',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 2,
-                'decimalCount' => 0,
-            ])) 
-            ->addColumn(new Column([
-                'name'         => 'ano_ant',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 4,
-                'decimalCount' => 0,
-            ]))  
-            ->addColumn(new Column([
-                'name'         => 'vut_ant',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 3,
-                'decimalCount' => 0,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'costo_ant',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 15,
-                'decimalCount' => 2,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'band_ufv',
-                'type'   => FieldType::LOGICAL,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'codestado',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 2,
-                'decimalCount' => 0,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'cod_rube',
-                'type'   => FieldType::CHAR,
-                'length' => 15,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'nro_conv',
-                'type'   => FieldType::CHAR,
-                'length' => 10,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'org_fin',
-                'type'   => FieldType::CHAR,
-                'length' => 3,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'feult',
-                'type'   => FieldType::DATE,
-                'length' => 8,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'usuar',
-                'type'   => FieldType::CHAR,
-                'length' => 8,
-            ]))
-            ->addColumn(new Column([
-                'name'         => 'api_estado',
-                'type'         => FieldType::NUMERIC,
-                'length'       => 1,
-                'decimalCount' => 0,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'codigosec',
-                'type'   => FieldType::CHAR,
-                'length' => 15,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'banderas',
-                'type'   => FieldType::CHAR,
-                'length' => 12,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'fec_mod',
-                'type'   => FieldType::DATE,
-                'length' => 8,
-            ]))
-            ->addColumn(new Column([
-                'name'   => 'usu_mod',
-                'type'   => FieldType::CHAR,
-                'length' => 8,
-            ]))
-            ->save(); //creates file
-
-    }
-    protected function llenarDBF(){
+ 
+   protected function llenarDBF(){
        $actuales = Actual::all();
         try {
             $table = new TableEditor(public_path('vsiaf/dbfs/ACTUAL.DBF'),['encoding' => 'cp1252']);
@@ -329,7 +79,7 @@ class DbfsDatabase extends Command
                 $record->set('dia', $actuales[$i]['dia'] );
                 $record->set('codofic', $actuales[$i]['codofic'] );
                 $record->set('codresp', $actuales[$i]['codresp'] );
-                $record->set('observ', $actuales[$i]['observ'] );
+               // $record->set('observ', $actuales[$i]['observ'] );
                 $record->set('dia_ant', $actuales[$i]['dia_ant'] );
                 $record->set('mes_ant', $actuales[$i]['mes_ant'] );
                 $record->set('ano_ant', $actuales[$i]['año_ant'] );
@@ -508,7 +258,7 @@ class DbfsDatabase extends Command
     protected function llenarOficinaDBF(){
        $oficinas = Oficinas::all();
         try {
-            $table = new TableEditor(public_path('vsiaf/dbfs/oficina.DBF'),['encoding' => 'cp1252']);
+            $table = new TableEditor(public_path('vsiaf/dbfs/OFICINA.DBF'),['encoding' => 'cp1252']);
             for ($i=0; $i < count($oficinas); $i++) {
 
                 $record = $table->appendRecord();
@@ -537,7 +287,9 @@ class DbfsDatabase extends Command
                 $datosMap[$dato->codigo] = [
                     'codcont' => $dato->codcont,
                     'codaux' => $dato->codaux,
-                    'descripcion' => $dato->descripcion,
+                    'descripcion' =>$this->limpiarTexto($dato->descripcion),
+		    'codresp'=> $dato->codresp,
+		    'codofic'=>$dato->codofic,
                     'codestado' => $dato->codestado,
                     'codigosec' => $dato->codigosec,
                 ];
@@ -550,6 +302,8 @@ class DbfsDatabase extends Command
                     $record->set('codcont', $dato['codcont']);
                     $record->set('codaux', $dato['codaux']);
                     $record->set('descrip', $dato['descripcion']);
+		    $record->set('codofic',$dato['codofic']);
+		    $record->set('codresp',$dato['codresp']);
                     $record->set('codestado', $dato['codestado']);
                     $record->set('codigosec', $dato['codigosec']);
                     $table->writeRecord();
@@ -569,7 +323,7 @@ class DbfsDatabase extends Command
             $datosMap = [];
             foreach ($datos as $dato) {
                 $datosMap[$dato->codaux . '|' . $dato->codcont] = [
-                    'nomaux' => $dato->nomaux,
+                    'nomaux' => $this->limpiarTexto($dato->nomaux),
                     'codaux' => $dato->codaux,
                     'codcont' => $dato->codcont,
                 ];
@@ -607,9 +361,9 @@ class DbfsDatabase extends Command
                     'unidad'=>$dato->unidad,
                     'codofic'=>$dato->codofic,
                     'codresp'=>$dato->codresp,
-                    'nomresp'=>$dato->nomresp,
-                    'cargo'=>$dato->cargo,
-                    'observ'=>$dato->observ,
+                    'nomresp'=>$this->limpiarTexto($dato->nomresp),
+                    'cargo'=>$this->limpiarTexto($dato->cargo),
+                   // 'observ'=>$dato->observ,
                     'ci'=>$dato->ci,
                     'feult'=>$dato->feult,
                     'usuar'=>$dato->usuar,
@@ -627,6 +381,8 @@ class DbfsDatabase extends Command
                 $key = $codresp . '|' . $codofic . '|' .$unidad;
                 if (isset($datosMap[$key])) {
                     $dato = $datosMap[$key];
+		    $record->set('codresp',$dato['codresp']);
+		    $record->set('codofic',$dato['codofic']);
                     $record->set('nomresp', $dato['nomresp']);
                     $record->set('cargo', $dato['cargo']);
                     $record->set('ci', $dato['ci']);
@@ -644,7 +400,7 @@ class DbfsDatabase extends Command
                     $newRecord->set('codresp', $dato['codresp']);
                     $newRecord->set('nomresp', $dato['nomresp']);
                     $newRecord->set('cargo', $dato['cargo']);
-                    $newRecord->set('observ', $dato['observ']);
+                   // $newRecord->set('observ', $dato['observ']);
                     $newRecord->set('ci', $dato['ci']);
                     $newRecord->set('feult', $dato['feult']);
                     $newRecord->set('usuar', $dato['usuar']);
@@ -666,19 +422,18 @@ class DbfsDatabase extends Command
             $datos = Oficinas::where('estadodbf', 1)->get();
             $datosMap = [];
             foreach ($datos as $dato) {
-                $datosMap[$dato->codofic . '|' . $dato->unidad] = [
-                    'entidad'=>$dato->entidad,
-                    'unidad'=>$dato->unidad,
-                    'codofic'=>$dato->codofic,
-                    'nomofic'=>$dato->nomofic,
-                    'observ'=>$dato->observaciones,
+                $datosMap[$dato->codofic . '|' . $dato->unidad] = [ 
+                    'entidad'=>$dato->entidad, 'unidad'=>$dato->unidad, 
+                    'codofic'=>$dato->codofic, 
+                    'nomofic'=>$this->limpiarTexto($dato->nomofic),
+                   // 'observ'=>$dato->observaciones,
                     'feult'=>$dato->feult,
                     'usuar'=>$dato->usuar,
                     'api_estado'=>$dato->api_estado,
                 ];
             }
 
-            $table = new TableEditor(public_path('vsiaf/dbfs/oficina.DBF'), ['encoding' => 'cp1252']);
+            $table = new TableEditor(public_path('vsiaf/dbfs/OFICINA.DBF'), ['encoding' => 'cp1252']);
             $procesados = [];
             while ($record = $table->nextRecord()) {
                 $codofic = $record->get('codofic');
@@ -688,7 +443,7 @@ class DbfsDatabase extends Command
                     $dato = $datosMap[$key];
                     $record->set('nomofic', $dato['nomofic']);
                     $record->set('api_estado', $dato['api_estado']);
-                    $record->set('observ', $dato['observ']);
+                   // $record->set('observ', $dato['observ']);
                     $table->writeRecord();
                     $procesados[$key] = true;
                 }
@@ -700,7 +455,7 @@ class DbfsDatabase extends Command
                     $newRecord->set('unidad', $dato['unidad']);
                     $newRecord->set('codofic', $dato['codofic']);
                     $newRecord->set('nomofic', $dato['nomofic']);
-                    $newRecord->set('observ', $dato['observ']);
+                   // $newRecord->set('observ', $dato['observ']);
                     $newRecord->set('feult', $dato['feult']);
                     $newRecord->set('usuar', $dato['usuar']);
                     $newRecord->set('api_estado', $dato['api_estado']);
@@ -715,4 +470,10 @@ class DbfsDatabase extends Command
         }
 
     }
+	private function limpiarTexto($texto){
+		$replace =['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u',
+			   'Á'=>'A','É'=>'E','Í'=>'I','Ó'=>'O','Ú'=>'U',
+			   'Ñ'=>'NI','ñ'=>'ni'];
+		return strtr($texto,$replace);
+	}
 }

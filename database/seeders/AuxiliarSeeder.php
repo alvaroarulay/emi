@@ -15,7 +15,7 @@ class AuxiliarSeeder extends Seeder
      */
     public function run()
     {
-        $table = new TableReader(public_path('vsiaf/dbfs/AUXILIAR.DBF'),['encoding' => 'cp1252']);
+        $table = new TableReader(public_path('vsiaf/dbfs/auxiliar.DBF'),['encoding' => 'cp1252']);
         while ($record = $table->nextRecord()) {
             DB::table('auxiliar')->insert([
                 'entidad' => $record->get('entidad'),

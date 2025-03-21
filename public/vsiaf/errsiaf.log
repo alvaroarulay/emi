@@ -58,4 +58,734 @@ variable:  ACTIVIFIJO
 
 
 =================================================================
+
+ERROR en  10:52:34   28/01/2025
+programa:  REINDEX2
+   linea:          17   DO c:\vsiaf\vsiaf.exe
+
+  numero:          41   El archivo memo v:\dbfs\actual.fpt no existe o no es válido.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:36   28/01/2025
+programa:  OPENDB
+   linea:          41   DO c:\vsiaf\vsiaf.exe
+
+  numero:          41   El archivo memo v:\dbfs\actual.fpt no existe o no es válido.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:37   28/01/2025
+programa:  OPENDB
+   linea:          43   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:38   28/01/2025
+programa:  OPENDB
+   linea:          44   DO c:\vsiaf\vsiaf.exe
+
+  numero:          52   No hay ninguna tabla abierta en el área de trabajo actual.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:40   28/01/2025
+programa:  OPENDB
+   linea:         140   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:41   28/01/2025
+programa:  SETRELATIONS
+   linea:         149   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:41   28/01/2025
+programa:  SETRELATIONS
+   linea:         151   DO c:\vsiaf\vsiaf.exe
+
+  numero:          12   No se encuentra la variable 'CODCONT'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:41   28/01/2025
+programa:  SETRELATIONS
+   linea:         154   DO c:\vsiaf\vsiaf.exe
+
+  numero:          12   No se encuentra la variable 'CODAUX'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:42   28/01/2025
+programa:  SETRELATIONS
+   linea:         157   DO c:\vsiaf\vsiaf.exe
+
+  numero:          12   No se encuentra la variable 'CODOFIC'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:43   28/01/2025
+programa:  SETRELATIONS
+   linea:         160   DO c:\vsiaf\vsiaf.exe
+
+  numero:          12   No se encuentra la variable 'CODRESP'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:43   28/01/2025
+programa:  SETRELATIONS
+   linea:         163   DO c:\vsiaf\vsiaf.exe
+
+  numero:          12   No se encuentra la variable 'DIA'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:45   28/01/2025
+programa:  SETRELATIONS
+   linea:         166   DO c:\vsiaf\vsiaf.exe
+
+  numero:          12   No se encuentra la variable 'CODIGO'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:46   28/01/2025
+programa:  SETRELATIONS
+   linea:         169   DO c:\vsiaf\vsiaf.exe
+
+  numero:          12   No se encuentra la variable 'CODESTADO'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:47   28/01/2025
+programa:  SETRELATIONS
+   linea:         182   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:48   28/01/2025
+programa:  SETRELATIONS
+   linea:         183   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:49   28/01/2025
+programa:  SETRELATIONS
+   linea:         191   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:50   28/01/2025
+programa:  FRSACTIVFIJ1.ACTIVFIJ.LOAD
+   linea:          85   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:51   28/01/2025
+programa:  FRSACTIVFIJ1.ACTIVFIJ.LOAD
+   linea:         109   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:52   28/01/2025
+programa:  REFRESH
+   linea:        1175   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:53   28/01/2025
+programa:  TC_INCO
+   linea:        2221   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:55   28/01/2025
+programa:  TC_INCO
+   linea:        2227   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:56   28/01/2025
+programa:  FFECHAVUTIL
+   linea:        2307   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:57   28/01/2025
+programa:  FFECHAVUTIL
+   linea:        2308   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:58   28/01/2025
+programa:  FFECHAVUTIL
+   linea:        2309   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          12   No se encuentra la variable 'FECHA'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:52:59   28/01/2025
+programa:  FFECHAVUTIL
+   linea:        2313   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:53:00   28/01/2025
+programa:  FFECHAVUTIL
+   linea:        2320   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          12   No se encuentra la variable 'FECHA'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:53:01   28/01/2025
+programa:  CCONSUMIDO
+   linea:        1536   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:         107   Incompatibilidad entre el tipo de operador y el tipo de operando.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:53:02   28/01/2025
+programa:  FFECHAVUTIL
+   linea:        2307   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  10:53:04   28/01/2025
+programa:  FFECHAVUTIL
+   linea:        2308   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  ACTIVIFIJO
+
+
+=================================================================
+
+ERROR en  14:15:28   28/01/2025
+programa:  FRSMAIN1.PRINCIPAL.PAGEFRAME1.PAGE1.CMGCALCULA36.VALID
+   linea:           6   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          41   El archivo memo v:\dbfs\actual.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:29   28/01/2025
+programa:  REINDEX2
+   linea:           8   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:30   28/01/2025
+programa:  REINDEX2
+   linea:          17   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          41   El archivo memo v:\dbfs\actual.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:32   28/01/2025
+programa:  OPENDB
+   linea:          22   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          41   El archivo memo v:\dbfs\actual.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:33   28/01/2025
+programa:  OPENDB
+   linea:          40   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:34   28/01/2025
+programa:  OPENDB
+   linea:          94   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:35   28/01/2025
+programa:  SETRELATIONS
+   linea:         103   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'ACTUAL'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:36   28/01/2025
+programa:  SETRELATIONS
+   linea:         105   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          12   No se encuentra la variable 'CODCONT'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:37   28/01/2025
+programa:  SETRELATIONS
+   linea:         107   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:38   28/01/2025
+programa:  SETRELATIONS
+   linea:         108   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:39   28/01/2025
+programa:  SETRELATIONS
+   linea:         111   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          12   No se encuentra la variable 'CODOFIC'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:40   28/01/2025
+programa:  SETRELATIONS
+   linea:         114   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          12   No se encuentra la variable 'CODRESP'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:42   28/01/2025
+programa:  SETRELATIONS
+   linea:         117   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          12   No se encuentra la variable 'DIA'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:15:43   28/01/2025
+programa:  SETRELATIONS
+   linea:         120   select nomresp,codresp,cargo from resp where unidad = m.unidadinst and entidad = m.entidadinst and codofic = oficina.codofic and api_estado = 1 into cursor res
+
+  numero:          12   No se encuentra la variable 'CODIGO'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:55:46   28/01/2025
+programa:  REINDEX2
+   linea:           8   DO c:\vsiaf\vsiaf.exe
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:55:47   28/01/2025
+programa:  OPENDB
+   linea:          40   DO c:\vsiaf\vsiaf.exe
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:55:49   28/01/2025
+programa:  SETRELATIONS
+   linea:         107   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:55:50   28/01/2025
+programa:  SETRELATIONS
+   linea:         108   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  14:56:20   28/01/2025
+programa:  CALCULA
+   linea:           9   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  
+
+
+=================================================================
+
+ERROR en  14:59:12   28/01/2025
+programa:  REINDEX2
+   linea:           8   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  
+
+
+=================================================================
+
+ERROR en  14:59:14   28/01/2025
+programa:  OPENDB
+   linea:          40   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  
+
+
+=================================================================
+
+ERROR en  14:59:15   28/01/2025
+programa:  SETRELATIONS
+   linea:         107   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  
+
+
+=================================================================
+
+ERROR en  14:59:16   28/01/2025
+programa:  SETRELATIONS
+   linea:         108   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  
+
+
+=================================================================
+
+ERROR en  14:59:46   28/01/2025
+programa:  CALCULA
+   linea:           9   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  
+
+
+=================================================================
+
+ERROR en  15:00:15   28/01/2025
+programa:  REINDEX2
+   linea:           8   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  
+
+
+=================================================================
+
+ERROR en  15:00:17   28/01/2025
+programa:  OPENDB
+   linea:          40   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  
+
+
+=================================================================
+
+ERROR en  15:00:18   28/01/2025
+programa:  SETRELATIONS
+   linea:         107   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  
+
+
+=================================================================
+
+ERROR en  15:00:19   28/01/2025
+programa:  SETRELATIONS
+   linea:         108   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  
+
+
+=================================================================
+
+ERROR en  15:00:48   28/01/2025
+programa:  CALCULA
+   linea:           9   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  
+
+
+=================================================================
+
+ERROR en  15:37:23   28/01/2025
+programa:  REINDEX2
+   linea:           8   DO c:\vsiaf\vsiaf.exe
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  15:37:25   28/01/2025
+programa:  OPENDB
+   linea:          40   DO c:\vsiaf\vsiaf.exe
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  15:37:26   28/01/2025
+programa:  SETRELATIONS
+   linea:         107   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  15:37:27   28/01/2025
+programa:  SETRELATIONS
+   linea:         108   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  15:37:57   28/01/2025
+programa:  CALCULA
+   linea:           9   SELECT nomaux,codaux  FROM V:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo v:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  
+
+
+=================================================================
+
+ERROR en  17:23:57   26/02/2025
+programa:  REINDEX2
+   linea:           8   DO c:\vsiaf\vsiaf.exe
+
+  numero:          41   El archivo memo x:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  17:23:59   26/02/2025
+programa:  OPENDB
+   linea:          40   DO c:\vsiaf\vsiaf.exe
+
+  numero:          41   El archivo memo x:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  17:24:00   26/02/2025
+programa:  SETRELATIONS
+   linea:         107   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  17:24:01   26/02/2025
+programa:  SETRELATIONS
+   linea:         108   DO c:\vsiaf\vsiaf.exe
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  17:24:30   26/02/2025
+programa:  CALCULA
+   linea:           9   SELECT nomaux,codaux  FROM X:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo x:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  
+
+
+=================================================================
+
+ERROR en  17:24:33   26/02/2025
+programa:  REINDEX2
+   linea:           8   SELECT nomaux,codaux  FROM X:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo x:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  17:24:34   26/02/2025
+programa:  OPENDB
+   linea:          40   SELECT nomaux,codaux  FROM X:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo x:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  17:24:35   26/02/2025
+programa:  SETRELATIONS
+   linea:         107   SELECT nomaux,codaux  FROM X:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  17:24:36   26/02/2025
+programa:  SETRELATIONS
+   linea:         108   SELECT nomaux,codaux  FROM X:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          13   No se encuentra el alias 'AUXILIAR'.
+variable:  CALCULA
+
+
+=================================================================
+
+ERROR en  17:24:37   26/02/2025
+programa:  CALCULA
+   linea:           9   SELECT nomaux,codaux  FROM X:\\DBFS\auxiliar WHERE codcont=codcon and unidad = m.unidadinst and not deleted() ORDER BY 2 INTO CURSOR Cauxiliar
+
+  numero:          41   El archivo memo x:\dbfs\auxiliar.fpt no existe o no es válido.
+variable:  
+
+
+=================================================================
 

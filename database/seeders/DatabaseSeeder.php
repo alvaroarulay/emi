@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $this->call(oficinaSeeder::class);
+       /* $this->call(oficinaSeeder::class);
         $this->call(codcontSeeder::class);
         $this->call(ResponsableSeeder::class);
         $this->call(ActualSeeder::class);
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MesSeeder::class);
         $this->call(objgastoSeeder::class);
         $this->call(organismoSeeder::class);
-        //$this->call(orguserSeeder::class);
+        //$this->call(orguserSeeder::class);*/
         $this->call(UnidadSeeder::class);
     }
 }
